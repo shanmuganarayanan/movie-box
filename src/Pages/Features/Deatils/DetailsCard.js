@@ -32,7 +32,11 @@ const Detailscard = ({
                                 Directed by: {isData.created_by.length > 0 ? isData.created_by.map(e => e.name).join(', ') : 'TMDB'}
                             </p>
                         )}
-                        <p className="text-xs md:text-sm w-full md:w-3/4 font-medium text-white mt-3 hidden lg:block">{isData?.overview}</p>
+                        <p className="text-xs md:text-sm w-full md:w-3/4 font-medium text-white mt-3 hidden lg:block">
+                            {isData.overview.length > 300
+                            ? `${isData.overview.slice(0, 300)}...`
+                            : isData.overview}
+                        </p>
                         <p className="text-sm md:text-m w-full md:w-3/4 font-bold text-white mt-3">Genre
                             <p className="flex gap-3 mt-3">
                                 {isData?.genres.map((e,i) => (<p key={i} className="bg-gray-100 bg-opacity-20 rounded-md px-2 py-1 font-normal">{e?.name}</p>))} 
@@ -63,6 +67,20 @@ const Detailscard = ({
                                 </div>
                             </div>
                         </div>
+                        {type === "Series" && 
+                            <div>
+                                <p className="text-xl font-bold text-white">Seasons</p>
+                                <div className="flex gap-4 mt-3">
+                                    {isData?.seasons.slice(0, 4).map((e,i) => (
+                                        <div key={i} className="w-20 h-24">
+                                            <img src={`https://image.tmdb.org/t/p/original/${e?.poster_path || isData?.backdrop_path}`} alt={`Season ${e?.season_number}`} className="h-full w-full object-cover object-center rounded-md border-2 border-gray-400"/>
+                                            <p className="text-xs md:text-sm w-full md:w-3/4 text-white">{e?.name}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        }
+                        
                     </div>
                 </div>
             </div>

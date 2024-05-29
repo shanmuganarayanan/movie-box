@@ -6,9 +6,10 @@ import { useDispatch } from "react-redux";
 import { ApiLoaderHandler } from "../../actions/apiLoaderActions";
 import Apiloader from "../../Components/Apiloader/Apiloader";
 import Detailscard from "./Deatils/DetailsCard";
+import Popular from "../../Components/Popular/Popular";
 
 const Features = () => {
-    let { id } = useParams();
+    let { type, id } = useParams();
     const axios = axiosInstance();
     const [isData, setIsData] = useState(null);
     const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const Features = () => {
 
     const fetchData = () => {
         dispatch(ApiLoaderHandler(true));
-            axios.get(`/tv/${id}`)
+            axios.get(`/${type === "Series" ? "tv" : "movie"}/${id}`)
             .then(res => {
                 setIsData(res?.data);
                 dispatch(ApiLoaderHandler(false));
@@ -29,7 +30,7 @@ const Features = () => {
 
     useEffect(() => {
         fetchData();
-    }, [ id ]);
+    }, [type, id ]);
 
     if (!isData) {
         return <Apiloader />;
@@ -62,7 +63,7 @@ const Features = () => {
                             </svg>
                             Back
                     </button>
-                    <Detailscard isData={isData} type={"Series"}/>
+                    <Detailscard isData={isData} type={type}/>
                 </div>
             </div>
             <Footer />

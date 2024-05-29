@@ -8,7 +8,6 @@ import Apiloader from "../Components/Apiloader/Apiloader";
 import Profile from "../Pages/Profiles/Profiles";
 import Notfound from "../Pages/404/Notfound";
 import Popularmovies from "../Pages/Popularmovies/Popularmovies";
-import Featuresmovies from "../Pages/Features/Featuresmovies";
 
 const Main = () => {
 
@@ -22,8 +21,8 @@ const Main = () => {
                     <Routes>
                         <Route path="*" element={<Notfound />} />
                         <Route path="/" element={<Home />} />
-                        <Route path="/series/:id" element={<Features />} />
-                        <Route path="/movies/:id" element={<Featuresmovies />} />
+                        <Route path="/home" element={<Home />} />
+                        <Route path="/:type/:id" element={<Features />} />
                         <Route path="/profile/:id" element={<Profile />} />
                         <Route path="/movies" element={<Popularmovies />} />
                     </Routes>
