@@ -21,7 +21,6 @@ const Main = () => {
                     <Navbar />
                     <Routes>
                         <Route path="*" element={<Notfound />} />
-                        <Route path="/" element={<Home />} />
                         <Route path="/home" element={<Home />} />
                         <Route path="/series/:id" element={<Features />} />
                         <Route path="/movies/:id" element={<Featuresmovies />} />
