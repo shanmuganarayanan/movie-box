@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/movie-box/static/css/main.925c3191.css",
-    "main.js": "/movie-box/static/js/main.98b195c6.js",
-    "static/js/453.d1ead18a.chunk.js": "/movie-box/static/js/453.d1ead18a.chunk.js",
-    "static/media/Instagram.svg": "/movie-box/static/media/Instagram.d81d278c57c6f6176e3d7d40b6f8a2ac.svg",
-    "static/media/Loader.svg": "/movie-box/static/media/Loader.2b245110310ce11bb34ce20a3adcce9e.svg",
-    "static/media/Facebook.svg": "/movie-box/static/media/Facebook.b23bd943097902d0f0c0ecf8a22b7776.svg",
-    "static/media/Twitter.svg": "/movie-box/static/media/Twitter.5883a42ef6073c148059c31c25e83a5c.svg",
-    "static/media/Youtube.svg": "/movie-box/static/media/Youtube.6cd1fe1bd2afc04e0e4c27c11cd4792e.svg",
-    "index.html": "/movie-box/index.html",
-    "static/media/Hamberger.svg": "/movie-box/static/media/Hamberger.7e36ae0e903d5172300b6fe954f123f2.svg",
-    "static/media/Playbtn.svg": "/movie-box/static/media/Playbtn.e881ba3405439971c0053ba3ec70ab89.svg",
-    "static/media/Arrowright.svg": "/movie-box/static/media/Arrowright.d0fb4ab7942e318dbcc718b71795fe5b.svg",
-    "static/media/Plus.svg": "/movie-box/static/media/Plus.8ffbb718e8034699327fb3375b8698ed.svg",
-    "main.925c3191.css.map": "/movie-box/static/css/main.925c3191.css.map",
-    "main.98b195c6.js.map": "/movie-box/static/js/main.98b195c6.js.map",
-    "453.d1ead18a.chunk.js.map": "/movie-box/static/js/453.d1ead18a.chunk.js.map"
+    "main.css": "/static/css/main.925c3191.css",
+    "main.js": "/static/js/main.8629c6b3.js",
+    "static/js/453.d1ead18a.chunk.js": "/static/js/453.d1ead18a.chunk.js",
+    "static/media/Instagram.svg": "/static/media/Instagram.d81d278c57c6f6176e3d7d40b6f8a2ac.svg",
+    "static/media/Loader.svg": "/static/media/Loader.2b245110310ce11bb34ce20a3adcce9e.svg",
+    "static/media/Facebook.svg": "/static/media/Facebook.b23bd943097902d0f0c0ecf8a22b7776.svg",
+    "static/media/Twitter.svg": "/static/media/Twitter.5883a42ef6073c148059c31c25e83a5c.svg",
+    "static/media/Youtube.svg": "/static/media/Youtube.6cd1fe1bd2afc04e0e4c27c11cd4792e.svg",
+    "index.html": "/index.html",
+    "static/media/Hamberger.svg": "/static/media/Hamberger.7e36ae0e903d5172300b6fe954f123f2.svg",
+    "static/media/Playbtn.svg": "/static/media/Playbtn.e881ba3405439971c0053ba3ec70ab89.svg",
+    "static/media/Arrowright.svg": "/static/media/Arrowright.d0fb4ab7942e318dbcc718b71795fe5b.svg",
+    "static/media/Plus.svg": "/static/media/Plus.8ffbb718e8034699327fb3375b8698ed.svg",
+    "main.925c3191.css.map": "/static/css/main.925c3191.css.map",
+    "main.8629c6b3.js.map": "/static/js/main.8629c6b3.js.map",
+    "453.d1ead18a.chunk.js.map": "/static/js/453.d1ead18a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.925c3191.css",
-    "static/js/main.98b195c6.js"
+    "static/js/main.8629c6b3.js"
   ]
 }
