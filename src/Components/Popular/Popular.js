@@ -78,7 +78,7 @@ const Popular = () => {
         }
         else if(isAllData && isViewAllPopular){
             const sortedData = [...isAllData].sort((a, b) => b.vote_average - a.vote_average);
-            setIsPoularData(sortedData.slice(0, 15));
+            setIsPoularData(sortedData.slice(0, 16));
         }
     }, [isAllData,isViewAllPopular]);
     

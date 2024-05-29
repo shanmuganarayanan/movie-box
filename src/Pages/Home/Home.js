@@ -57,7 +57,7 @@ const Home = () => {
         if (isPeopleData && !isViewAllPeoples) {
             setIsPeopleAllData(isPeopleData.slice(0, 4));
         } else if (isPeopleData && isViewAllPeoples) {
-            setIsPeopleAllData(isPeopleData.slice(0, 15));
+            setIsPeopleAllData(isPeopleData.slice(0, 16));
         }
     }, [isViewAllPeoples, isPeopleData]);
 
