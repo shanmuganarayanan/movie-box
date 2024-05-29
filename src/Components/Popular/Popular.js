@@ -98,8 +98,14 @@ const Popular = () => {
     }, {});
 
     const dataHandler = (arr) => {
-        navigate(`/${arr?.type}/${arr?.id}`);
-        window.location.reload();
+        if(arr?.type === "Series"){
+            navigate(`/series/${arr?.id}`);
+            window.location.reload();
+        }
+        else{
+            navigate(`/movies/${arr?.id}`);
+            window.location.reload();
+        }
       };
 
     return(

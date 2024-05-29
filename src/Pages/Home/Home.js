@@ -61,7 +61,6 @@ const Home = () => {
         }
     }, [isViewAllPeoples, isPeopleData]);
 
-    console.log();
 
 
     return (

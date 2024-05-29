@@ -63,7 +63,7 @@ const Popularmovies = () => {
     }, {});
 
     const dataHandler = (arr) => {
-        navigate(`/Movie/${arr?.id}`);
+        navigate(`/movies/${arr?.id}`);
     };
 
     return (

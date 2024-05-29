@@ -7,7 +7,7 @@ import { ApiLoaderHandler } from "../../actions/apiLoaderActions";
 import Apiloader from "../../Components/Apiloader/Apiloader";
 import Detailscard from "./Deatils/DetailsCard";
 
-const Features = () => {
+const Featuresmovies = () => {
     let { id } = useParams();
     const axios = axiosInstance();
     const [isData, setIsData] = useState(null);
@@ -16,7 +16,7 @@ const Features = () => {
 
     const fetchData = () => {
         dispatch(ApiLoaderHandler(true));
-            axios.get(`/tv/${id}`)
+            axios.get(`/movie/${id}`)
             .then(res => {
                 setIsData(res?.data);
                 dispatch(ApiLoaderHandler(false));
@@ -62,7 +62,7 @@ const Features = () => {
                             </svg>
                             Back
                     </button>
-                    <Detailscard isData={isData} type={"Series"}/>
+                    <Detailscard isData={isData}/>
                 </div>
             </div>
             <Footer />
@@ -70,4 +70,4 @@ const Features = () => {
     );
 };
 
-export default Features;
+export default Featuresmovies;
