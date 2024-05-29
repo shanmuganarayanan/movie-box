@@ -12,7 +12,7 @@ const Notfound = () => {
 
     useEffect(() => {
         dispatch(ApiLoaderHandler(false));
-        navigate('/home');
+        navigate('/');
     },[])
 }
 
