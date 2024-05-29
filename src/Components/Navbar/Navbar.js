@@ -48,7 +48,7 @@ const Navbar = () => {
                 </div>
                 <div className="mt-9">
                     <div>
-                        <p className="text-gray-400 font-medium text-lg">New & Popular</p>
+                        <p className="text-gray-400 font-medium text-lg">Categories</p>
                         <div className="flex flex-col gap-3 items-start mt-3">
                             <button className="text-5xl font-bold text-white border-rose-700 hover:border-b hover:pb-1 w-full text-start hover:text-rose-700">Movies</button>
                             <button className="text-5xl font-bold text-white border-rose-700 hover:border-b hover:pb-1 w-full text-start hover:text-rose-700">Series</button>
