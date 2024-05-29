@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/movie-box/static/css/main.fe4c1b5b.css",
-    "main.js": "/movie-box/static/js/main.200b20d7.js",
+    "main.css": "/movie-box/static/css/main.5fbdf9d8.css",
+    "main.js": "/movie-box/static/js/main.46e78f23.js",
     "static/js/453.d1ead18a.chunk.js": "/movie-box/static/js/453.d1ead18a.chunk.js",
     "static/media/Instagram.svg": "/movie-box/static/media/Instagram.d81d278c57c6f6176e3d7d40b6f8a2ac.svg",
     "static/media/Loader.svg": "/movie-box/static/media/Loader.2b245110310ce11bb34ce20a3adcce9e.svg",
@@ -13,12 +13,12 @@
     "static/media/Playbtn.svg": "/movie-box/static/media/Playbtn.e881ba3405439971c0053ba3ec70ab89.svg",
     "static/media/Arrowright.svg": "/movie-box/static/media/Arrowright.d0fb4ab7942e318dbcc718b71795fe5b.svg",
     "static/media/Plus.svg": "/movie-box/static/media/Plus.8ffbb718e8034699327fb3375b8698ed.svg",
-    "main.fe4c1b5b.css.map": "/movie-box/static/css/main.fe4c1b5b.css.map",
-    "main.200b20d7.js.map": "/movie-box/static/js/main.200b20d7.js.map",
+    "main.5fbdf9d8.css.map": "/movie-box/static/css/main.5fbdf9d8.css.map",
+    "main.46e78f23.js.map": "/movie-box/static/js/main.46e78f23.js.map",
     "453.d1ead18a.chunk.js.map": "/movie-box/static/js/453.d1ead18a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe4c1b5b.css",
-    "static/js/main.200b20d7.js"
+    "static/css/main.5fbdf9d8.css",
+    "static/js/main.46e78f23.js"
   ]
 }
