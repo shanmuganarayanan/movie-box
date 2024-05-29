@@ -14,7 +14,7 @@ const Detailscard = ({
     return(
         <div className="h-full flex justify-center items-end w-full">
             <div className="xl:flex justify-center items-start w-full">
-                <div className="xs:hidden md:hidden xl:block xl:w-1/4 flex xl:justify-center">
+                <div className="hidden xl:block xl:w-1/4 flex xl:justify-center">
                     <div className="h-[250px] w-[170px] sm:h-[300px] sm:w-[200px] md:h-[370px] md:w-[250px] overflow-hidden">
                         <img src={`https://image.tmdb.org/t/p/original/${isData?.poster_path}`} className="rounded-md h-full w-full object-cover object-center" />
                     </div> 
