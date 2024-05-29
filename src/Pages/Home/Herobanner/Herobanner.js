@@ -40,7 +40,7 @@ const Herobanner = ({ data }) => {
   };
 
   return (
-    <div className="h-5/6 relative overflow-hidden">
+    <div className="h-full relative overflow-hidden">
         {data?.map((e, i) => (
             <div
             key={i}
