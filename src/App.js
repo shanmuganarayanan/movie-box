@@ -7,7 +7,7 @@ import Main from './Main/Main';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/movie-box">
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Main />
