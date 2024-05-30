@@ -6,6 +6,7 @@ import Peoples from "./Peoples/Peoples";
 import Footer from "../../Components/Footer/Footer";
 import { useDispatch } from "react-redux";
 import { ApiLoaderHandler } from "../../actions/apiLoaderActions";
+import { useMediaQuery } from 'react-responsive';
 
 const Home = () => {
     const [isNowPlayingData, setIsNowPlayingData] = useState(null);
@@ -14,6 +15,9 @@ const Home = () => {
     const [isPeopleData,setIsPeopleData] = useState(null);
     const axios = axiosInstance();
     const dispatch = useDispatch();
+
+    const isLargeScreen = useMediaQuery({ query: '(min-width: 1920px)' });
+    const isMediumcreen = useMediaQuery({ query: '(min-width: 1024px) and (max-width : 1280px' });
 
     const getNowPlayingDetails = () => {
         dispatch(ApiLoaderHandler(true));
@@ -55,11 +59,29 @@ const Home = () => {
 
     useEffect(() => {
         if (isPeopleData && !isViewAllPeoples) {
-            setIsPeopleAllData(isPeopleData.slice(0, 4));
+            if(isLargeScreen) {
+                setIsPeopleAllData(isPeopleData.slice(0, 5));
+            }
+            else if(isMediumcreen){
+                setIsPeopleAllData(isPeopleData.slice(0, 5));
+            }
+            else {
+                setIsPeopleAllData(isPeopleData.slice(0, 4));
+            }
         } else if (isPeopleData && isViewAllPeoples) {
-            setIsPeopleAllData(isPeopleData.slice(0, 16));
+            if(isLargeScreen) {
+                setIsPeopleAllData(isPeopleData.slice(0, 20));
+            }
+            else if(isMediumcreen){
+                setIsPeopleAllData(isPeopleData.slice(0, 18));
+            }
+            else {
+                setIsPeopleAllData(isPeopleData.slice(0, 16));
+            }
         }
-    }, [isViewAllPeoples, isPeopleData]);
+    }, [isViewAllPeoples, isPeopleData, isLargeScreen, isMediumcreen]);
+
+
 
 
 
@@ -67,7 +89,7 @@ const Home = () => {
         <div className="h-full">
             <Herobanner data={isNowPlayingData}/>
             <Popular />
-            <Peoples isPeopleAllData={isPeopleAllData} isViewAllPeoples={isViewAllPeoples} setIsViewAllPeoples={setIsViewAllPeoples}/>
+            <Peoples isPeopleAllData={isPeopleAllData} isViewAllPeoples={isViewAllPeoples} setIsViewAllPeoples={setIsViewAllPeoples} />
             <Footer />
         </div>
     );

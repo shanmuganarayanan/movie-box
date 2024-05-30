@@ -4,15 +4,19 @@ import { axiosInstance } from "../../Axios/axios";
 import { useDispatch } from "react-redux";
 import { ApiLoaderHandler } from "../../actions/apiLoaderActions";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from 'react-responsive';
 
 const Popularmovies = () => {
     const [isAllData, steIsAllData] = useState(null);
+    const [isSortedData,setIsSortedData] = useState(null);
     const [genres, setGenres] = useState([]);
-    const [isMouseEnter, setIsMouseEnter] = useState(false);
 
     const axios = axiosInstance();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const isLargeScreen = useMediaQuery({ query: '(min-width: 1920px)' });
+    const isMediumcreen = useMediaQuery({ query: '(min-width: 1024px) and (max-width : 1280px' });
 
     const fetchAllMovies = () => {
         dispatch(ApiLoaderHandler(true));
@@ -47,6 +51,20 @@ const Popularmovies = () => {
         fetchGenerData();
     }, [])
 
+    useEffect(() => {
+        if(isAllData){
+            if(isLargeScreen){
+                setIsSortedData(isAllData.slice(0, 20));
+            }
+            else if(isMediumcreen){
+                setIsSortedData(isAllData.slice(0, 18));
+            }
+            else {
+                setIsSortedData(isAllData.slice(0, 16));
+            }
+        }
+    },[isAllData,isLargeScreen,isMediumcreen])
+
     const getCurrentYear = () => new Date().getFullYear();
 
     const getYear = (dateString) => {
@@ -70,8 +88,8 @@ const Popularmovies = () => {
         <div className="bg-[#0C0C0C]">
             <div className="app-padding py-16">
                 <p className="text-4xl font-bold text-center mt-10 text-white">Popular movies</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-4 md:gap-8 lg:gap-12.5 place-items-center mt-11">
-                    {isAllData?.map((e, i) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 4xl:grid-cols-5 gap-4 md:gap-8 lg:gap-12.5 place-items-center mt-11">
+                    {isSortedData?.map((e, i) => (
                         <div key={i} className="relative border border-[#1D1D1D] hover:shadow-lg p-2 hover:bg-[#161616] cursor-pointer text-white group" onClick={() => dataHandler(e)}>
                             <div className="h-[250px] w-[170px] sm:h-[300px] sm:w-[200px] md:h-[370px] md:w-[250px] overflow-hidden relative">
                                 <img 

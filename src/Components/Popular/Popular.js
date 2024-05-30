@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../Axios/axios";
 import { useDispatch } from "react-redux";
 import { ApiLoaderHandler } from "../../actions/apiLoaderActions";
-import Icon from "../Icons/Icons";
+import { useMediaQuery } from 'react-responsive';
 
 const Popular = () => {
 
@@ -11,12 +11,15 @@ const Popular = () => {
     const [isAllData, setIsAllData] = useState(null);
     const [isPopularData,setIsPoularData] = useState(null);
     const [isViewAllPopular,setIsViewAllPopular] = useState(false);
-
+    
     const axios = axiosInstance();
 
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
+
+    const isLargeScreen = useMediaQuery({ query: '(min-width: 1920px)' });
+    const isMediumcreen = useMediaQuery({ query: '(min-width: 1024px) and (max-width : 1280px' });
 
     const fetchPopularMoviesAndSeries = () => {
         dispatch(ApiLoaderHandler(true));
@@ -74,13 +77,28 @@ const Popular = () => {
     useEffect(() => {
         if (isAllData && !isViewAllPopular) {
             const sortedData = [...isAllData].sort((a, b) => b.vote_average - a.vote_average);
-            setIsPoularData(sortedData.slice(0, 4));
-        }
-        else if(isAllData && isViewAllPopular){
+            if (isLargeScreen) {
+                setIsPoularData(sortedData.slice(0, 5));
+            } 
+            else if(isMediumcreen) {
+                setIsPoularData(sortedData.slice(0, 3));
+            }
+            else {
+                setIsPoularData(sortedData.slice(0, 4));
+            }
+        } else if (isAllData && isViewAllPopular) {
             const sortedData = [...isAllData].sort((a, b) => b.vote_average - a.vote_average);
-            setIsPoularData(sortedData.slice(0, 16));
+            if(isLargeScreen){
+                setIsPoularData(sortedData.slice(0, 20));
+            }
+            else if(isMediumcreen){
+                setIsPoularData(sortedData.slice(0, 18));
+            }
+            else {
+                setIsPoularData(sortedData.slice(0, 16));
+            }
         }
-    }, [isAllData,isViewAllPopular]);
+    }, [isAllData, isViewAllPopular, isLargeScreen, isMediumcreen]);
     
     const getCurrentYear = () => new Date().getFullYear();
 
@@ -104,7 +122,7 @@ const Popular = () => {
     return(
         <div className="app-padding py-16">
                 <p className="text-4xl font-bold text-center text-white">Popular Movies & Series</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8 lg:gap-12.5 place-items-center mt-11">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 4xl:grid-cols-5 gap-4 md:gap-8 lg:gap-12.5 place-items-center mt-11">
                     {isPopularData?.map((e, i) => (
                         <div key={i} className="relative border border-[#1D1D1D] hover:shadow-lg p-2 hover:bg-[#161616] cursor-pointer text-white group" onClick={() => dataHandler(e)}>
                             <div className="h-[250px] w-[170px] sm:h-[300px] sm:w-[200px] md:h-[370px] md:w-[250px] overflow-hidden relative">

@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Icon from "../../../Components/Icons/Icons"
 
 const Peoples = ({
     isPeopleAllData,
@@ -17,7 +16,7 @@ const Peoples = ({
     return(
         <div className="app-padding py-16">
                 <p className="text-4xl font-bold text-center text-white">Popular People</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8 md:gap-8 lg:gap-20 place-items-center mt-11">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 4xl:grid-cols-5 gap-4 md:gap-8 lg:gap-12.5 place-items-center mt-11">
                     {isPeopleAllData?.map((e, i) => (
                         <div key={i} className="relative border border-[#1D1D1D] hover:shadow-lg p-2 hover:bg-[#161616] cursor-pointer text-white" onClick={() =>ProfileHandler(e)}>
                             <div className="h-[250px] w-[170px] sm:h-[300px] sm:w-[200px] md:h-[370px] md:w-[250px] overflow-hidden">
