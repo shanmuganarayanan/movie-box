@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/movie-box/static/css/main.4645ebfb.css",
-    "main.js": "/movie-box/static/js/main.9a61c4d4.js",
+    "main.js": "/movie-box/static/js/main.b4c4ddd1.js",
     "static/js/453.d1ead18a.chunk.js": "/movie-box/static/js/453.d1ead18a.chunk.js",
     "static/media/Instagram.svg": "/movie-box/static/media/Instagram.d81d278c57c6f6176e3d7d40b6f8a2ac.svg",
     "static/media/Loader.svg": "/movie-box/static/media/Loader.2b245110310ce11bb34ce20a3adcce9e.svg",
@@ -14,11 +14,11 @@
     "static/media/Arrowright.svg": "/movie-box/static/media/Arrowright.d0fb4ab7942e318dbcc718b71795fe5b.svg",
     "static/media/Plus.svg": "/movie-box/static/media/Plus.8ffbb718e8034699327fb3375b8698ed.svg",
     "main.4645ebfb.css.map": "/movie-box/static/css/main.4645ebfb.css.map",
-    "main.9a61c4d4.js.map": "/movie-box/static/js/main.9a61c4d4.js.map",
+    "main.b4c4ddd1.js.map": "/movie-box/static/js/main.b4c4ddd1.js.map",
     "453.d1ead18a.chunk.js.map": "/movie-box/static/js/453.d1ead18a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4645ebfb.css",
-    "static/js/main.9a61c4d4.js"
+    "static/js/main.b4c4ddd1.js"
   ]
 }
