@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Icon from '../../../Components/Icons/Icons';
+import { useNavigate } from 'react-router-dom';
 
 const Herobanner = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isManual, setIsManual] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -39,6 +41,10 @@ const Herobanner = ({ data }) => {
     );
   };
 
+  const dataHandler = (arr) => {
+    navigate(`/Movie/${arr?.id}`);
+  };
+
   return (
     <div className="h-full relative overflow-hidden">
         {data?.map((e, i) => (
@@ -57,7 +63,7 @@ const Herobanner = ({ data }) => {
                 <h1 className="text-white text-3xl lg:text-5xl font-bold banner-title">{titlePart(e.title)}</h1>
                 <p className="text-xs md:text-sm w-full lg:w-3/4 font-medium text-white">{e?.overview}</p>
                 <div className='mt-4'>
-                    <button className='px-4 py-2 bg-rose-700 flex items-center text-xs md:text-sm leading-6 text-white font-bold gap-2 rounded-md'>
+                    <button className='px-4 py-2 bg-rose-700 flex items-center text-xs md:text-sm leading-6 text-white font-bold gap-2 rounded-md' onClick={() =>dataHandler(e)}>
                       <Icon name={"Play"}/>
                       SEE MORE
                     </button>

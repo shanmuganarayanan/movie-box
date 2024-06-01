@@ -1,60 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { axiosInstance } from "../../Axios/axios";
 import Herobanner from "./Herobanner/Herobanner";
 import Popular from "../../Components/Popular/Popular";
 import Peoples from "./Peoples/Peoples";
 import Footer from "../../Components/Footer/Footer";
-import { useDispatch } from "react-redux";
-import { ApiLoaderHandler } from "../../actions/apiLoaderActions";
+import { useSelector } from "react-redux";
 import { useMediaQuery } from 'react-responsive';
 
 const Home = () => {
-    const [isNowPlayingData, setIsNowPlayingData] = useState(null);
+    const {Nowplaying, Popularpeoples } = useSelector(state => state?.Moviedata);
     const [isViewAllPeoples,setIsViewAllPeoples] = useState(false);
     const [isPeopleAllData,setIsPeopleAllData] = useState(null);
-    const [isPeopleData,setIsPeopleData] = useState(null);
-    const axios = axiosInstance();
-    const dispatch = useDispatch();
+    const isPeopleData  = Popularpeoples;
 
     const isLargeScreen = useMediaQuery({ query: '(min-width: 1920px)' });
     const isMediumcreen = useMediaQuery({ query: '(min-width: 1024px) and (max-width : 1280px' });
-
-    const getNowPlayingDetails = () => {
-        dispatch(ApiLoaderHandler(true));
-        axios.get(`/movie/now_playing`)
-            .then(res => {
-                console.log(res?.data?.results);
-                setIsNowPlayingData([...res?.data?.results.slice(0, 4), res?.data?.results[8]]);
-                dispatch(ApiLoaderHandler(false));
-            })
-            .catch(err => {
-                console.log(err);
-                dispatch(ApiLoaderHandler(false));
-            });
-    }
-
-    
-
-    const getPeoples = () => {
-        dispatch(ApiLoaderHandler(true));
-        axios.get(`/person/popular`)
-            .then(res => {
-                const sortedResults = res?.data?.results.sort((a, b) => b.popularity - a.popularity);
-                setIsPeopleData(sortedResults);
-                setIsPeopleAllData(sortedResults);
-                dispatch(ApiLoaderHandler(false));
-            })
-            .catch(err => {
-                console.log(err);
-                dispatch(ApiLoaderHandler(false));
-            });
-    }
-    
-
-    useEffect(() => {
-        getNowPlayingDetails();
-        getPeoples();
-    }, []);
 
 
     useEffect(() => {
@@ -87,7 +46,7 @@ const Home = () => {
 
     return (
         <div className="h-full">
-            <Herobanner data={isNowPlayingData}/>
+            <Herobanner data={Nowplaying}/>
             <Popular />
             <Peoples isPeopleAllData={isPeopleAllData} isViewAllPeoples={isViewAllPeoples} setIsViewAllPeoples={setIsViewAllPeoples} />
             <Footer />

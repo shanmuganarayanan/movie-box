@@ -57,8 +57,8 @@ const Profile = () => {
 
     return(
         <div className="h-full">
-            <div className="grid grid-cols-1 lg:grid-cols-2 app-padding py-[120px] lg:py-16 lg:h-full gap-10">
-                <div className="w-full flex lg:justify-center lg:items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 px-10 md:app-padding py-[120px] lg:py-16 lg:h-full gap-10">
+                <div className="w-full flex justify-center lg:items-center">
                     <img src={`https://image.tmdb.org/t/p/w300${isProdileData?.profile_path}`} className="h-[420px] w-[360px] object-cover object-center rounded-md"/>
                 </div>
                 <div className="w-full flex justify-center flex-col gap-5">

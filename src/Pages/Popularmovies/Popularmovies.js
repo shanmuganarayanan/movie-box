@@ -1,55 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../../Components/Footer/Footer";
-import { axiosInstance } from "../../Axios/axios";
-import { useDispatch } from "react-redux";
-import { ApiLoaderHandler } from "../../actions/apiLoaderActions";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from 'react-responsive';
 
 const Popularmovies = () => {
-    const [isAllData, steIsAllData] = useState(null);
+    const {Popularmovies,Moviesgenres} = useSelector(state => state?.Moviedata);
+    const isAllData = Popularmovies;
+    const genres = Moviesgenres;
     const [isSortedData,setIsSortedData] = useState(null);
-    const [genres, setGenres] = useState([]);
-
-    const axios = axiosInstance();
-    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const isLargeScreen = useMediaQuery({ query: '(min-width: 1920px)' });
     const isMediumcreen = useMediaQuery({ query: '(min-width: 1024px) and (max-width : 1280px' });
-
-    const fetchAllMovies = () => {
-        dispatch(ApiLoaderHandler(true));
-        axios.get('/movie/popular')
-            .then(res => {
-                console.log(res?.data?.results);
-                const sortedData = res?.data?.results.sort((a, b) => b.vote_average - a.vote_average);
-                steIsAllData(sortedData);
-                dispatch(ApiLoaderHandler(false));
-            })
-            .catch(err => {
-                console.error(err?.data);
-                dispatch(ApiLoaderHandler(false));
-            })
-    }
-
-    const fetchGenerData = () => {
-        dispatch(ApiLoaderHandler(true));
-        axios.get('/genre/movie/list')
-            .then(moviesGenreRes => {
-                setGenres(moviesGenreRes?.data?.genres);
-                dispatch(ApiLoaderHandler(false));
-            })
-            .catch(err => {
-                console.log(err);
-                dispatch(ApiLoaderHandler(false));
-            });
-    };
-
-    useEffect(() => {
-        fetchAllMovies();
-        fetchGenerData();
-    }, [])
 
     useEffect(() => {
         if(isAllData){

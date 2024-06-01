@@ -1,77 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { axiosInstance } from "../../Axios/axios";
-import { useDispatch } from "react-redux";
-import { ApiLoaderHandler } from "../../actions/apiLoaderActions";
+import { useSelector } from "react-redux";
 import { useMediaQuery } from 'react-responsive';
 
 const Popular = () => {
-
-    const [genres, setGenres] = useState([]);
-    const [isAllData, setIsAllData] = useState(null);
+    const {Genres, Combaineddata} = useSelector(state => state.Moviedata)
+    const genres = Genres;
+    const isAllData = Combaineddata;
     const [isPopularData,setIsPoularData] = useState(null);
     const [isViewAllPopular,setIsViewAllPopular] = useState(false);
-    
-    const axios = axiosInstance();
 
     const navigate = useNavigate();
 
-    const dispatch = useDispatch();
-
     const isLargeScreen = useMediaQuery({ query: '(min-width: 1920px)' });
     const isMediumcreen = useMediaQuery({ query: '(min-width: 1024px) and (max-width : 1280px' });
-
-    const fetchPopularMoviesAndSeries = () => {
-        dispatch(ApiLoaderHandler(true));
-        Promise.all([
-            axios.get('/movie/popular'),
-            axios.get('/tv/popular')
-        ])
-            .then(([moviesRes, seriesRes]) => {
-
-                const moviesData = moviesRes?.data?.results.map(movie => ({
-                    ...movie,
-                    type: "Movie"
-                }));
-
-                const seriesData = seriesRes?.data?.results.map(series => ({
-                    ...series,
-                    type: "Series"
-                }));
-
-                const combinedData = [...moviesData, ...seriesData];
-                setIsAllData(combinedData);
-                dispatch(ApiLoaderHandler(false));
-            })
-            .catch(err => {
-                console.log(err);
-                dispatch(ApiLoaderHandler(false));
-            });
-    };
-
-    const fetchGenerData = () => {
-        dispatch(ApiLoaderHandler(true));
-        Promise.all([
-            axios.get('/genre/movie/list'),
-            axios.get('/genre/tv/list')
-        ])
-        .then(([moviesGenreRes, seriesGenreRes]) => {
-            const movieGenres = moviesGenreRes?.data?.genres;
-            const tvGenres = seriesGenreRes?.data?.genres;
-            const combinedData = [...movieGenres, ...tvGenres];
-            setGenres(combinedData);
-            dispatch(ApiLoaderHandler(false));
-        })
-        .catch(err => {
-            console.log(err);
-            dispatch(ApiLoaderHandler(false));
-        });
-    };
-
-    useEffect(() => {
-        fetchPopularMoviesAndSeries();
-        fetchGenerData();
-    }, []);
 
     
     useEffect(() => {
