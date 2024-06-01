@@ -65,7 +65,7 @@ const Herobanner = ({ data }) => {
                 <div className='mt-4'>
                     <button className='px-4 py-2 bg-rose-700 flex items-center text-xs md:text-sm leading-6 text-white font-bold gap-2 rounded-md' onClick={() =>dataHandler(e)}>
                       <Icon name={"Play"}/>
-                      SEE MORE
+                      WATCH NOW
                     </button>
                 </div>
                 </div>

@@ -42,7 +42,11 @@ const Detailscard = ({
                                 {isData?.genres.map((e,i) => (<p key={i} className="bg-gray-100 bg-opacity-20 rounded-md px-2 py-1 font-normal">{e?.name}</p>))} 
                             </p>
                         </p>
-                        <div className="mt-5 flex gap-2.5 w-full">
+                        <div className="mt-5 lg:flex gap-2.5 w-full">
+                            <button className='px-4 py-2 bg-rose-700 flex items-center text-xs md:text-sm leading-6 text-white font-bold gap-2 rounded-md lg:hidden mb-2.5'>
+                                <Icon name={"Play"}/>
+                                Play Now
+                            </button>
                             <button className='px-4 py-2 border border-white flex items-center text-xs md:text-sm leading-6 text-white font-bold gap-2 rounded-md'>
                                 <Icon name={'Plus'} />
                                 Add to Watchlist
