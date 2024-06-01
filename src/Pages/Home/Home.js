@@ -63,7 +63,7 @@ const Home = () => {
                 setIsPeopleAllData(isPeopleData.slice(0, 5));
             }
             else if(isMediumcreen){
-                setIsPeopleAllData(isPeopleData.slice(0, 5));
+                setIsPeopleAllData(isPeopleData.slice(0, 3));
             }
             else {
                 setIsPeopleAllData(isPeopleData.slice(0, 4));
