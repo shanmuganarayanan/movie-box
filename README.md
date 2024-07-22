@@ -1,4 +1,4 @@
-Demo : [https://shanmuganarayanan.github.io/movie-box/]
+Demo : https://shanmuganarayanan.github.io/movie-box/
 
 # Getting Started with Create React App
 
